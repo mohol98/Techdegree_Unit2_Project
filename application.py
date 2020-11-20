@@ -2,7 +2,10 @@ from constants import PLAYERS,TEAMS
 import copy
 app_constants = copy.deepcopy(PLAYERS)
 experienced_players = []
-inexperienced_players = []    
+inexperienced_players = []
+panthers = app_constants[:6]
+bandits = app_constants[6:12]
+warriors = app_constants[12:] 
 
 
 def clean_data(app_constants):
@@ -53,10 +56,18 @@ def main():
     
     
     def balance_teams(app_constants):
-        player_list = app_constants[len(TEAMS)::selection2]
-        name_list = [app_players['name'] for app_players in player_list]
-        print('Total players: ',len(player_list), '\n')
-        print(', '.join(name_list))
+        if team_selection == 'Panthers':
+            panthers_list = [app_players['name'] for app_players in panthers]
+            print("Total players: ", len(panthers), "\n" )
+            print(', '.join(panthers_list))
+        elif team_selection == 'Bandits':
+            bandits_list = [app_players['name'] for app_players in bandits]
+            print("Total players: ", len(panthers), "\n" )
+            print(', '.join(bandits_list))
+        elif team_selection == 'Warriors':
+            warriors_list = [app_players['name'] for app_players in warriors]
+            print("Total players: ", len(panthers), "\n" )
+            print(', '.join(warriors_list))
     balance_teams(app_constants)
     end_app = input('\nPress Enter to continue: ')
     if end_app == '':
